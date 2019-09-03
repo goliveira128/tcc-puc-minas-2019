@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div *ngIf="error" class="alert alert-danger col-md-9" role="alert">
+      <h4 class="alert-heading">Falha!</h4>
+      <p>Ocorreu uma falha ao excluir o incidente, tente novamente em alguns instantes.</p>
+    </div>
+
+    <div *ngIf="!busy" class="col-md-9">
+      <h3>Incidentes Cadastradors</h3>
+      <div class="col-md-8 tool-bar">
+        <button routerLink="/incidentes/insert"  *ngIf="canInsert" ngClass="btn btn-primary" role="button" routerLinkActive="active">Registrar Incidente</button>
+      </div>
+      <table class="table small">
+        <thead>
+        <tr>
+          <th scope="col" class="d-none d-sm-block">Id</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Status</th>
+          <th scope="col">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let incidente of incidentesData; let i = index" [attr.data-index]="i">
+          <th scope="row" class="d-none d-sm-block">{{incidente.id}}</th>
+          <td>{{incidente.descricao}}</td>
+          <td>{{incidente.status}}</td>
+          <td>
+            <button class="btn  btn-danger" *ngIf="canDelete" (click)="deleteIncidente(incidente.id)">Excluir</button>
+            <button class="btn btn-primary btn-danger" routerLink="/incidentes/update/{{incidente.id}}">Atualizar</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ngx-spinner></ngx-spinner>
+</div>
+

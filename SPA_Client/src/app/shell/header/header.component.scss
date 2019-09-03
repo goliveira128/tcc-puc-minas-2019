@@ -1,0 +1,15 @@
+.bg-dark-blue {
+  background-color: #05234c !important;
+}
+.container a {
+  color: #74ccc9 !important;
+}
+.navbar-nav{
+  position:absolute;
+}
+@media (max-width:500px){
+  .navbar-nav{
+    position:relative;
+  }
+}
+

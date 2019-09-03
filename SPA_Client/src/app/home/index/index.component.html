@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="jumbotron mt-3">
+    <div class="row">
+      <div class="col-md-3 col-xs-12">
+        <img class="mb-4" src="assets/images/logo_sgq.png" alt="" width="190" height="125">
+      </div>
+      <div class="col-md-9 col-xs-12">
+        <h1>Sistema de Gestão de Qualidade</h1>
+        <p class="lead" *ngIf="!isAuthenticated">Para utilizar o sistema é necessario estar logado</p>
+        <a class="btn btn-lg btn-primary" *ngIf="!isAuthenticated" routerLink="/register" role="button">Registrar</a>
+        <a class="btn btn-lg btn-primary ml-4" *ngIf="!isAuthenticated" routerLink="/login" role="button">Login </a>
+        <p class="lead" *ngIf="isAuthenticated">Ola {{ name }} os módulos a baixo estão disponiveis para o seu perfil</p>
+        <a class="btn btn-lg btn-primary ml-4" *ngIf="isAuthenticated" routerLink="/incidentes" role="button">Incidentes</a>
+        <a class="btn btn-lg btn-primary ml-4" *ngIf="isAdmin" routerLink="/administracao" role="button">Relatórios Gerenciais</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+

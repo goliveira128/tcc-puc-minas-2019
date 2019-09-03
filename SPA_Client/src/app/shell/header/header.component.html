@@ -1,0 +1,38 @@
+<header> 
+  <div class="navbar navbar-expand-lg navbar-dark bg-dark-blue box-shadow">
+    <div class="container d-flex justify-content-between">
+      <a routerLink="/" class="navbar-brand d-flex align-items-center">
+        <strong>SGQ</strong>
+      </a>
+      <button *ngIf="!isAuthenticated" (click)="menuClick()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div style="position:relative;" *ngIf="!isAuthenticated" [ngClass]="(isOpen)?'collapse navbar-collapse show':'collapse navbar-collapse'" id="navbarNavDropdown">
+        <ul class="navbar-nav" style="right:0;">
+          <li class="nav-item active">
+            <a class="p-2 text-light" routerLink="/register">Registrar-se</a>
+          </li>
+          <li class="nav-item">
+            <a class="p-2 text-light" routerLink="/login">Login</a>
+          </li>
+        </ul>
+      </div>
+      <button *ngIf="isAuthenticated" (click)="menuClick()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown2" aria-controls="navbarNavDropdown2" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div style="position:relative;" *ngIf="isAuthenticated" [ngClass]="(isOpen)?'collapse navbar-collapse show':'collapse navbar-collapse' " id="navbarNavDropdown2">
+        <ul class="navbar-nav" style="right:0;">
+          <li class="nav-item" style="padding-right:30px;">
+            <a>Olá {{name}}</a>
+          </li>
+          <li class="nav-item active">
+            <a class="p-2 text-light" routerLink="/incidentes">Incidentes</a>
+          </li>
+          <li class="nav-item">
+            <a class="p-2 text-light" (click)="signout()" href="#">Sair</a>
+          </li>
+        </ul>
+      </div>
+    </div>    
+  </div>
+</header>

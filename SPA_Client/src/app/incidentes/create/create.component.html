@@ -1,0 +1,39 @@
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Falha!</h4>
+  <p>Ocorreu uma falha ao registrar o incidente, tente novamente em alguns instantes.</p>
+  <button type="submit" class="btn btn-primary" routerLink="/incidentes">Voltar</button>
+</div>
+
+<h3>Criar Incidente</h3>
+<div [hidden]="submitted" style="width: 400px;padding:10px 15px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="descricao"></label>
+      <input type="text" class="form-control" id="descricao" required [(ngModel)]="incidente.descricao" placeholder="Descricao" name="descricao">
+    </div>
+
+    <div class="form-group">
+      <label for="naoConformidadeId">Não Conformidade</label>
+      <select name="naoConformidadeId" class="form-control" placeholder="Não Conformidade" [(ngModel)]="incidente.naoConformidadeId">
+        <option *ngFor="let key of naoConformidades" [value]="key.id">{{ key.descricao }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select name="status" class="form-control" placeholder="status" [(ngModel)]="incidente.status">
+        <option *ngFor="let key of status" [value]="key.value">{{ key.label }}</option>
+      </select>
+      <!--<input type="text" class="form-control" id="Status" required [(ngModel)]="incidente.Status" placeholder="Status" name="Status">-->
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button type="submit" class="btn btn-primary" routerLink="/incidentes">Voltar</button>
+  </form>
+</div>
+<ngx-spinner></ngx-spinner>
+<div [hidden]="!submitted">
+  <h4>Incidente {{acao}} com sucesso!</h4>
+  <button type="submit" class="btn btn-primary" routerLink="/incidentes" >Voltar</button>
+</div>
+

@@ -1,0 +1,22 @@
+.form-control {
+  color: #05234c;
+
+  &:focus {
+    border-color: #74ccc9;
+    box-shadow: 0 0 0 0.2rem rgba(0, 190, 210, 0.25);
+  }
+}
+
+.btn-primary {
+  color: #74ccc9;
+  background-color: #05234c;
+  border-color: #007bff;
+}
+
+.h3 {
+  color: #05234c;
+}
+
+form{
+  padding:20px;
+}
